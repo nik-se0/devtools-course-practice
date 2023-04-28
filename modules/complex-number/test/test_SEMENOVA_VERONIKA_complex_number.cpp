@@ -17,7 +17,7 @@ TEST(Semenova_Veronika_ComplexNumberTest,
     ASSERT_NO_THROW(a = b);
 }
 
-const double Eps = 0.01;
+const double Eps = 0.0000001;
 TEST(Semenova_Veronika_ComplexNumberTest,
     Div_complex_number_with_specified_accuracy) {
     ComplexNumber a(1.0, 1.0);
