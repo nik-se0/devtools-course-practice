@@ -256,7 +256,7 @@ TEST(BTreeTest,
     t.Delete(1);
     EXPECT_EQ(t.Find(1), nullptr);
 }
-TEST(Tree test,
+TEST(BTreetest,
  Can_SetNext_Parent) {
     BinaryTree t({ 1, 5, 4, -3, 7, -2 });
     t.Reset();
