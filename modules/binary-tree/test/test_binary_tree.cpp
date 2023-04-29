@@ -5,6 +5,7 @@
 
 #include "include/binary_tree.h"
 
+using std::vector;
 
 TEST(Semenova_Veronika_Node, Can_create_Node) {
   ASSERT_NO_THROW(Node ed);

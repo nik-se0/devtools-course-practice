@@ -1,9 +1,10 @@
 //  Copyright 2023 Semenova Veronika
 
 #include <gtest/gtest.h>
+#include <vector>
 
 #include "include/binary_tree.h"
-#include <vector>
+
 
 Node::Node(const int V, Node* P,
   Node* L, Node* R) : Value(V), Left(L),
