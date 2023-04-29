@@ -20,7 +20,7 @@ BinaryTree::BinaryTree(int v) {
 }
 Node* BinaryTree::FindMin(Node* node) const {
   Node* tmp = node;
-  while (tmp->Left != 
+  while (tmp->Left !=
       nullptr) {
   tmp = tmp->Left;
 }
@@ -97,7 +97,7 @@ void BinaryTree::SetNext() {
 }
 void BinaryTree::Delete(int k) {
   Node* z = Find(k);
-  if (Find(k) == nullptr) { 
+  if (Find(k) == nullptr) {
       throw 1;
   }
   Node* y = nullptr, * x = nullptr;
