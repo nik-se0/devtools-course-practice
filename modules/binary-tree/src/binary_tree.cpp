@@ -92,8 +92,6 @@ Node* BinaryTree::FindNext(Node* node) const {
 void BinaryTree::SetNext() {
   if (root != nullptr) {
     curr = FindNext(curr);
-  } else {
-    throw 1;
   }
 }
 void BinaryTree::Delete(int k) {
