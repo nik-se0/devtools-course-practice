@@ -24,6 +24,7 @@ class BinaryTree {
   explicit BinaryTree(const int v);
   explicit BinaryTree(const std::vector<int>& v)
       : root(nullptr), curr(nullptr) {
+     int n = (int)v.size();
      for (int i = 0; i < v.size(); i++) {
        Insert(v[i]);
      }
