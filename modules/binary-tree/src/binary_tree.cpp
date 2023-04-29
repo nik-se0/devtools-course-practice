@@ -29,7 +29,7 @@ void BinaryTree::Reset() {
     curr = FindMin(root);
   }
   else {
-  throw std::exception("Ñan't resert");
+  throw 1;
 	}
 }
 int BinaryTree::GetValue() const {
@@ -37,7 +37,7 @@ int BinaryTree::GetValue() const {
     return curr->Value;
   }
   else {
-    throw std::exception("Ñan't extract a value");
+    throw 1;
   }
 }
 void BinaryTree::Insert(int v){
@@ -46,7 +46,7 @@ void BinaryTree::Insert(int v){
     return;
   }
   if (Find(v) != nullptr) {
-    throw std::exception("\tRe-insertion of the element is not possible\n");
+    throw 1;
   }
   Node* x = root, * y;
   while (x != nullptr) {
