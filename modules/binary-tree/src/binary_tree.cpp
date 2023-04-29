@@ -31,19 +31,19 @@ void BinaryTree::Reset() {
   if (root != nullptr) {
     curr = FindMin(root);
   } else {
-  throw 1;
+  throw std::string("Сan't resert");
   }
 }
 int BinaryTree::GetValue() const {
   if (curr != nullptr) {
     return curr->Value;
   } else {
-    throw 1;
+    throw std::string("Сan't set next");
   }
 }
 void BinaryTree::Insert(int v) {
   if (Find(v) != nullptr) {
-    throw 1;
+    throw std::string("Сan't extract a value");
   }
   if (root == nullptr)  {
     root = new Node(v);
@@ -97,7 +97,7 @@ void BinaryTree::SetNext() {
 void BinaryTree::Delete(int k) {
   Node* z = Find(k);
   if (Find(k) == nullptr) {
-      throw 1;
+      throw std::string("\tThe item being deleted is not in the tree\n");
   }
   Node* y = nullptr, * x = nullptr;
   if ((z->Left != nullptr) && (z->Right != nullptr)) {
