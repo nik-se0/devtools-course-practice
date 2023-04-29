@@ -20,12 +20,18 @@ class BinaryTree {
  public:
   BinaryTree();
   explicit BinaryTree(const int v);
+  explicit BinaryTree(const std::vector<int>& v) : root(nullptr), curr(nullptr) {
+     for (int i = 0; i < v.size(); i++) {
+       Insert(v[i]);
+     }
+  }
 
   Node* FindMin(Node* node = nullptr) const;
   Node* FindNext(Node* node) const;
 
   Node* Find(int k) const;
   void Insert(int k);
+  void Delete(int k);
 
   int GetValue() const;
   void Reset();

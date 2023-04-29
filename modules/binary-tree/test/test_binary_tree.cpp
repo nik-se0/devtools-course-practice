@@ -156,3 +156,25 @@ TEST(Semenova_Veronika_Binary_Tree, Insert_node_in_tree_corrertly2) {
     t.SetNext();
     EXPECT_EQ(t.GetValue(), 3);
 }
+TEST(Semenova_Veronika_Binary_Tree, Can_create_tree_from_vector_of_values) {
+    std::vector<int> val = { -2, 2, 5, 3, -1, 7, 8, 6 };
+    ASSERT_NO_THROW(BinaryTree t(val));
+}
+TEST(Semenova_Veronika_Binary_Tree, Create_tree_from_vector_of_values_corrertly) {
+    std::vector<int> val = { -2, 5, 3 };
+    BinaryTree t(val);
+    t.Reset();
+    EXPECT_EQ(t.GetValue(), -2);
+    t.SetNext();
+    EXPECT_EQ(t.GetValue(), 3);
+    t.SetNext();
+    EXPECT_EQ(t.GetValue(), 5);
+}
+TEST(Semenova_Veronika_Binary_Tree, Ñan_not_delete_node_in_empty_tree) {
+    BinaryTree t;
+    ASSERT_ANY_THROW(t.Delete(2));
+}
+TEST(Semenova_Veronika_Binary_Tree, Ñan_delete_node_in_tree) {
+    BinaryTree t(3);
+    ASSERT_NO_THROW(t.Delete(3));
+}

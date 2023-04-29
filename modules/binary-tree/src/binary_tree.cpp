@@ -28,15 +28,14 @@ void BinaryTree::Reset() {
   if (root != nullptr) {
     curr = FindMin(root);
   } else {
-  throw 1; 
+  throw 1;
   }
 }
 int BinaryTree::GetValue() const {
   if (curr != nullptr) {
     return curr->Value;
-  }
-  else {
-   throw 1;
+  } else {
+    throw 1;
   }
 }
 void BinaryTree::Insert(int v) {
@@ -52,7 +51,7 @@ void BinaryTree::Insert(int v) {
     y = x;
     if (v < x->Value) {
     x = x->Left;
-  } else { 
+  } else {
     x = x->Right;
   }
   }
@@ -67,7 +66,7 @@ Node* BinaryTree::Find(int k)  const {
   while ((tmp != nullptr) && (tmp->Value != k)) {
     if (k < tmp->Value) {
     tmp = tmp->Left;
-  } else { 
+  } else {
     tmp = tmp->Right;
   }
   }
@@ -75,7 +74,7 @@ Node* BinaryTree::Find(int k)  const {
 }
 Node* BinaryTree::FindNext(Node* node) const {
   Node* res = nullptr;
-  if (node->Right != nullptr){
+  if (node->Right != nullptr) {
     res = FindMin(node->Right);
   return res;
   }
@@ -84,14 +83,46 @@ Node* BinaryTree::FindNext(Node* node) const {
   while ((res != nullptr) && (tmp == res->Right)) {
     tmp = res;
   res = res->Parent;
-   }
-   return res;
+  }
+  return res;
 }
 void BinaryTree::SetNext() {
   if (root != nullptr) {
     curr = FindNext(curr);
-  }
-  else {
+  } else {
     throw 1;
+  }
+}
+void BinaryTree::Delete(int k) {
+  Node* z = Find(k);
+  if (Find(k) == nullptr) { 
+      throw 1;
+  }
+  Node* y = nullptr, * x = nullptr;
+  if ((z->Left != nullptr) && (z->Right != nullptr)) {
+    y = FindNext(z);
+  } else {
+    y = z;
+  }
+  if (y->Left != nullptr) {
+    x = y->Left;
+  } else {
+    x = y->Right;
+  }
+  if (x != nullptr) {
+    x->Parent = y->Parent;
+  }
+  if (y->Parent != nullptr) {
+    if (y == y->Parent->Left) {
+      y->Parent->Left = x;
+    } else {
+      y->Parent->Right = x;
+    }
+  }
+  if (y != z) {
+    z->Value = y->Value;
+  }
+  if (z == root && z->Left == nullptr && z->Right == nullptr) {
+    root = nullptr;
   }
 }
