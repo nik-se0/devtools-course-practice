@@ -193,5 +193,4 @@ TEST(TestPriorityQueue, Can_creat_PriorityQueue_with_parameter) {
 TEST(TestPriorityQueue, Creat_PriorityQueue_with_parameter_correctly) {
     PriorityQueue<int> Q2(3);
     ASSERT_EQ(Q2.top(), 3);
-
 }
