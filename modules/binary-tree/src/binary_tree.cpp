@@ -42,12 +42,12 @@ int BinaryTree::GetValue() const {
   }
 }
 void BinaryTree::Insert(int v) {
+  if (Find(v) != nullptr) {
+    throw 1;
+  }
   if (root == nullptr)  {
     root = new Node(v);
     return;
-  }
-  if (Find(v) != nullptr) {
-    throw 1;
   }
   Node* x = root, * y;
   while (x != nullptr) {
