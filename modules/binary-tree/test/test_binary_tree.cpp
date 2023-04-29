@@ -135,3 +135,24 @@ TEST(Semenova_Veronika_Binary_Tree, Ñan_not_insert_repeated_node_in_tree) {
     BinaryTree t(3);
     ASSERT_ANY_THROW(t.Insert(3));
 }
+TEST(Semenova_Veronika_Binary_Tree, Can_SetNext_in_tree) {
+    BinaryTree t(3);
+    t.Reset();
+    ASSERT_NO_THROW(t.SetNext());
+}
+TEST(Semenova_Veronika_Binary_Tree, Insert_node_in_tree_corrertly) {
+    BinaryTree t(3);
+    t.Insert(8);
+    t.Reset();
+    EXPECT_EQ(t.GetValue(), 3);
+    t.SetNext();
+    EXPECT_EQ(t.GetValue(), 8);
+}
+TEST(Semenova_Veronika_Binary_Tree, Insert_node_in_tree_corrertly2) {
+    BinaryTree t(3);
+    t.Insert(1);
+    t.Reset();
+    EXPECT_EQ(t.GetValue(), 1);
+    t.SetNext();
+    EXPECT_EQ(t.GetValue(), 3);
+}

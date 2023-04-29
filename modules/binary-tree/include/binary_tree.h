@@ -22,12 +22,14 @@ class BinaryTree {
   explicit BinaryTree(const int v);
 
   Node* FindMin(Node* node = nullptr) const;
+  Node* FindNext(Node* node) const;
 
   Node* Find(int k) const;
   void Insert(int k);
 
   int GetValue() const;
   void Reset();
+  void SetNext();
 };
 
 #endif  //  MODULES_BINARY_TREE_INCLUDE_BINARY_TREE_H_

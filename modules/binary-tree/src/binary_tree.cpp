@@ -12,14 +12,14 @@ Node::Node(const Node& n) :
   Right(nullptr), Parent(nullptr) {}
 
 
-BinaryTree::BinaryTree():root(nullptr),curr(nullptr){}
+BinaryTree::BinaryTree():root(nullptr), curr(nullptr) {}
 BinaryTree::BinaryTree(int v) {
   root = new Node(v);
   curr = nullptr;
 }
-Node* BinaryTree::FindMin(Node* node) const{
+Node* BinaryTree::FindMin(Node* node) const {
   Node* tmp = node;
-  while (tmp->Left != nullptr)	{
+  while (tmp->Left != nullptr) {
   tmp = tmp->Left;
 }
   return tmp;
@@ -27,20 +27,19 @@ Node* BinaryTree::FindMin(Node* node) const{
 void BinaryTree::Reset() {
   if (root != nullptr) {
     curr = FindMin(root);
+  } else {
+  throw 1; 
   }
-  else {
-  throw 1;
-	}
 }
 int BinaryTree::GetValue() const {
   if (curr != nullptr) {
     return curr->Value;
   }
   else {
-    throw 1;
+   throw 1;
   }
 }
-void BinaryTree::Insert(int v){
+void BinaryTree::Insert(int v) {
   if (root == nullptr)  {
     root = new Node(v);
     return;
@@ -52,28 +51,47 @@ void BinaryTree::Insert(int v){
   while (x != nullptr) {
     y = x;
     if (v < x->Value) {
-	  x = x->Left;
-	}
-	else{ 
-	  x = x->Right;
-	}
+    x = x->Left;
+  } else { 
+    x = x->Right;
+  }
   }
   if (v < y->Value) {
     y->Left = new Node(v, y);
-  }
-  else {
+  } else {
     y->Right = new Node(v, y);
   }
 }
-Node* BinaryTree::Find(int k)  const{
+Node* BinaryTree::Find(int k)  const {
   Node* tmp = root;
   while ((tmp != nullptr) && (tmp->Value != k)) {
     if (k < tmp->Value) {
-	  tmp = tmp->Left;
-	}
-	else { 
-	  tmp = tmp->Right;
-	}
+    tmp = tmp->Left;
+  } else { 
+    tmp = tmp->Right;
+  }
   }
   return tmp;
+}
+Node* BinaryTree::FindNext(Node* node) const {
+  Node* res = nullptr;
+  if (node->Right != nullptr){
+    res = FindMin(node->Right);
+  return res;
+  }
+  res = node->Parent;
+  Node* tmp = node;
+  while ((res != nullptr) && (tmp == res->Right)) {
+    tmp = res;
+  res = res->Parent;
+   }
+   return res;
+}
+void BinaryTree::SetNext() {
+  if (root != nullptr) {
+    curr = FindNext(curr);
+  }
+  else {
+    throw 1;
+  }
 }
