@@ -15,9 +15,16 @@ struct Node {
 };
 
 class BinaryTree {
-
-  public:
+  Node* root;
+  Node* curr;
+   public:
   BinaryTree();
+  BinaryTree(const int v);
+
+  Node* FindMin(Node* node = nullptr) const;
+
+  int GetValue() const;
+  void Reset();
 };
 
 #endif  //  MODULES_BINARY_TREE_INCLUDE_BINARY_TREE_H_

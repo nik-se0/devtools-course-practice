@@ -74,3 +74,28 @@ TEST(Semenova_Veronika_Node,
 TEST(Semenova_Veronika_Binary_Tree, Can_create_tree) {
   ASSERT_NO_THROW(BinaryTree t);
 }
+TEST(Semenova_Veronika_Binary_Tree, Can_create_tree_with_Value) {
+    ASSERT_NO_THROW(BinaryTree t(3));
+}
+TEST(Semenova_Veronika_Binary_Tree, Can_not_resert_in_empty_tree) {
+    BinaryTree t;
+    ASSERT_ANY_THROW(t.Reset());
+}
+TEST(Semenova_Veronika_Binary_Tree, Can_resert_in_not_empty_tree) {
+    BinaryTree t(3);
+    ASSERT_NO_THROW(t.Reset());
+}
+TEST(Semenova_Veronika_Binary_Tree, Can_not_extract_Value_from_empty_tree) {
+    BinaryTree t;
+    ASSERT_ANY_THROW(t.GetValue());
+}
+TEST(Semenova_Veronika_Binary_Tree, Can_extract_Value_from_tree) {
+    BinaryTree t(3);
+    t.Reset();
+    ASSERT_NO_THROW(t.GetValue());
+}
+TEST(Semenova_Veronika_Binary_Tree, Extract_Value_from_tree_correctly) {
+    BinaryTree t(3);
+    t.Reset();
+    EXPECT_EQ(t.GetValue(), 3);
+}
