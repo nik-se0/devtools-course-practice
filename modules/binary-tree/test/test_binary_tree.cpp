@@ -26,31 +26,20 @@ TEST(BTreeTest,
   EXPECT_EQ(ed.Value, 1);
 }
 TEST(BTreeTest,
-  Can_create_Node_with_parent) {
-  Node ed1;
-  ASSERT_NO_THROW(Node ed(3, &ed1));
-}
-TEST(BTreeTest,
-  Create_Node_with_parent_correctly) {
-  Node ed1(1);
-  Node ed(3, &ed1);
-
-  EXPECT_EQ((ed.Parent)->Value, 1);
-}
-TEST(BTreeTest,
-  Can_create_Node_with_descendant) {
+  Can_create_Node_with_parameter) {
   Node ed1;
   Node ed2(2);
   Node ed3(3);
   ASSERT_NO_THROW(Node ed(3, &ed1, &ed2, &ed3));
 }
 TEST(BTreeTest,
-  Create_Node_with_descendant_correctly) {
+  Create_Node_with_parameter_correctly) {
   Node ed1(1);
   Node ed2(2);
   Node ed3(3);
   Node ed(3, &ed1, &ed2, &ed3);
 
+  EXPECT_EQ((ed.Parent)->Value, 1);
   EXPECT_EQ((ed.Left)->Value, 2);
   EXPECT_EQ((ed.Right)->Value, 3);
 }
