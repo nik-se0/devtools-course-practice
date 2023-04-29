@@ -19,7 +19,6 @@ struct Node {
 class BinaryTree {
   Node* root;
   Node* curr;
-  
   Node* FindMin(Node* node = nullptr) const;
   Node* FindNext(Node* node) const;
  public:
