@@ -3,6 +3,8 @@
 #ifndef MODULES_BINARY_TREE_INCLUDE_BINARY_TREE_H_
 #define MODULES_BINARY_TREE_INCLUDE_BINARY_TREE_H_
 
+#include <vector>
+
 struct Node {
   int Value;
   Node* Left;
@@ -20,7 +22,8 @@ class BinaryTree {
  public:
   BinaryTree();
   explicit BinaryTree(const int v);
-  explicit BinaryTree(const std::vector<int>& v) : root(nullptr), curr(nullptr) {
+  explicit BinaryTree(const std::vector<int>& v)
+      : root(nullptr), curr(nullptr) {
      for (int i = 0; i < v.size(); i++) {
        Insert(v[i]);
      }

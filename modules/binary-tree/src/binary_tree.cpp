@@ -21,7 +21,7 @@ BinaryTree::BinaryTree(int v) {
 Node* BinaryTree::FindMin(Node* node) const {
   Node* tmp = node;
   while (tmp->Left != 
-     nullptr) {
+      nullptr) {
   tmp = tmp->Left;
 }
   return tmp;
