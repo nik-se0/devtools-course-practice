@@ -1,4 +1,4 @@
-﻿//  Copyright 2023 Semenova Veronika  
+// Copyright 2023 Semenova Veronika
 
 #include <gtest/gtest.h>
 #include <vector>
