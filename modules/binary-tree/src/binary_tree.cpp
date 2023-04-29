@@ -10,3 +10,5 @@ Node::Node(const int V, Node* P,
 Node::Node(const Node& n) :
   Value(n.Value), Left(nullptr),
   Right(nullptr), Parent(nullptr) {}
+
+BinaryTree::BinaryTree() {}

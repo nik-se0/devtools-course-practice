@@ -50,13 +50,11 @@ TEST(Semenova_Veronika_Node,
 
   EXPECT_EQ((ed.Left)->Value, 2);
   EXPECT_EQ((ed.Right)->Value, 3);
-
 }
 TEST(Semenova_Veronika_Node,
   Can_create_Node_with_copy_constructor) {
   Node ed1;
   ASSERT_NO_THROW(Node ed(ed1));
-
 }
 TEST(Semenova_Veronika_Node,
   Create_Node_with_copy_constructor_correctly) {
@@ -71,4 +69,8 @@ TEST(Semenova_Veronika_Node,
   EXPECT_EQ(e.Left, nullptr);
   EXPECT_EQ(e.Right, nullptr);
   EXPECT_EQ(e.Parent, nullptr);
+}
+
+TEST(Semenova_Veronika_Binary_Tree, Can_create_tree) {
+  ASSERT_NO_THROW(BinaryTree t);
 }

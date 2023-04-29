@@ -14,4 +14,10 @@ struct Node {
   explicit Node(const Node& n);
 };
 
+class BinaryTree {
+
+  public:
+  BinaryTree();
+};
+
 #endif  //  MODULES_BINARY_TREE_INCLUDE_BINARY_TREE_H_
