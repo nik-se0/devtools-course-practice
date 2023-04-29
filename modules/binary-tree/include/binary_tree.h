@@ -17,14 +17,17 @@ struct Node {
 class BinaryTree {
   Node* root;
   Node* curr;
-   public:
-  BinaryTree();
-  BinaryTree(const int v);
+    public:
+   BinaryTree();
+   explicit BinaryTree(const int v);
 
-  Node* FindMin(Node* node = nullptr) const;
+   Node* FindMin(Node* node = nullptr) const;
 
-  int GetValue() const;
-  void Reset();
+   Node* Find(int k) const;
+   void Insert(int k);
+
+   int GetValue() const;
+   void Reset();
 };
 
 #endif  //  MODULES_BINARY_TREE_INCLUDE_BINARY_TREE_H_

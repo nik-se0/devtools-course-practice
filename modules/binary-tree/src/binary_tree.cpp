@@ -40,3 +40,40 @@ int BinaryTree::GetValue() const {
     throw std::exception("Ñan't extract a value");
   }
 }
+void BinaryTree::Insert(int v){
+  if (root == nullptr)  {
+    root = new Node(v);
+    return;
+  }
+  if (Find(v) != nullptr) {
+    throw std::exception("\tRe-insertion of the element is not possible\n");
+  }
+  Node* x = root, * y;
+  while (x != nullptr) {
+    y = x;
+    if (v < x->Value) {
+	  x = x->Left;
+	}
+	else{ 
+	  x = x->Right;
+	}
+  }
+  if (v < y->Value) {
+    y->Left = new Node(v, y);
+  }
+  else {
+    y->Right = new Node(v, y);
+  }
+}
+Node* BinaryTree::Find(int k)  const{
+  Node* tmp = root;
+  while ((tmp != nullptr) && (tmp->Value != k)) {
+    if (k < tmp->Value) {
+	  tmp = tmp->Left;
+	}
+	else { 
+	  tmp = tmp->Right;
+	}
+  }
+  return tmp;
+}

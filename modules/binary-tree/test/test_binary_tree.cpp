@@ -99,3 +99,39 @@ TEST(Semenova_Veronika_Binary_Tree, Extract_Value_from_tree_correctly) {
     t.Reset();
     EXPECT_EQ(t.GetValue(), 3);
 }
+
+TEST(Semenova_Veronika_Binary_Tree, Ñan_insert_node_in_empty_tree) {
+    BinaryTree t;
+    ASSERT_NO_THROW(t.Insert(2));
+}
+TEST(Semenova_Veronika_Binary_Tree, Insert_node_in_empty_tree_correctly) {
+    BinaryTree t;
+    t.Insert(2);
+    t.Reset();
+    EXPECT_EQ(t.GetValue(), 2);
+}
+TEST(Semenova_Veronika_Binary_Tree, Ñan_insert_node_in_tree) {
+    BinaryTree t(3);
+    ASSERT_NO_THROW(t.Insert(2));
+}
+TEST(Semenova_Veronika_Binary_Tree, Ñan_find_value_in_empty_tree) {
+    BinaryTree t;
+    ASSERT_NO_THROW(t.Find(2));
+}
+TEST(Semenova_Veronika_Binary_Tree, Find_value_in_empty_tree_correctly) {
+    BinaryTree t;
+    EXPECT_EQ(t.Find(2), nullptr);
+}
+TEST(Semenova_Veronika_Binary_Tree, Ñan_find_value_in_tree) {
+    BinaryTree t(2);
+    ASSERT_NO_THROW(t.Find(2));
+}
+TEST(Semenova_Veronika_Binary_Tree, Find_value_in_tree_correctly) {
+    BinaryTree t(2);
+    Node* n = t.Find(2);
+    EXPECT_EQ(n->Value, 2);
+}
+TEST(Semenova_Veronika_Binary_Tree, Ñan_not_insert_repeated_node_in_tree) {
+    BinaryTree t(3);
+    ASSERT_ANY_THROW(t.Insert(3));
+}
