@@ -19,6 +19,9 @@ struct Node {
 class BinaryTree {
   Node* root;
   Node* curr;
+  
+  Node* FindMin(Node* node = nullptr) const;
+  Node* FindNext(Node* node) const;
  public:
   BinaryTree();
   explicit BinaryTree(const int v);
@@ -28,9 +31,6 @@ class BinaryTree {
          Insert(value);
      }
   }
-
-  Node* FindMin(Node* node = nullptr) const;
-  Node* FindNext(Node* node) const;
 
   Node* Find(int k) const;
   void Insert(int k);
