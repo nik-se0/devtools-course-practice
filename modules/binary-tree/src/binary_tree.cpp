@@ -127,7 +127,7 @@ void BinaryTree::Delete(int k) {
     root = nullptr;
   }
 }
-Node* BinaryTree::::FindMax(Node* node)  const {
+Node* BinaryTree::FindMax(Node* node)  const {
   Node* tmp = node;
   while (tmp->Right != nullptr) {
     tmp = tmp->Right;
