@@ -6,9 +6,6 @@ template<class T>
 PriorityQueue<T>::PriorityQueue() = default;
 
 template<class T>
-PriorityQueue<T>::~PriorityQueue() = default;
-
-template<class T>
 PriorityQueue<T>::PriorityQueue(const PriorityQueue &other)
     :data(other.data) {}
 
@@ -22,6 +19,11 @@ template<class T>
 void PriorityQueue<T>::put(const T &value) {
   auto position = std::upper_bound(data.begin(), data.end(), value);
   data.insert(position, value);
+}
+
+template<class T>
+PriorityQueue<T>::PriorityQueue(const T value) {
+    put(value);
 }
 
 template<class T>

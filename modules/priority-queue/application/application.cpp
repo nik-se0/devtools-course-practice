@@ -4,7 +4,6 @@
 #include <string>
 
 int main(int argc, const char** argv) {
-	
-	std::cout << "Hello word";
-	return 0;
+  std::cout << "Hello word";
+  return 0;
 }

@@ -185,3 +185,13 @@ TEST_F(PriorityQueueIntTest, Assign_Copy_Has_Own_Memory) {
 
   ASSERT_NE(copyQ.top(), Q.top());
 }
+
+TEST(TestPriorityQueue, Can_creat_PriorityQueue_with_parameter) {
+    ASSERT_NO_THROW(PriorityQueue<int> Q2(3));
+}
+
+TEST(TestPriorityQueue, Creat_PriorityQueue_with_parameter_correctly) {
+    PriorityQueue<int> Q2(3);
+    ASSERT_EQ(Q2.top(), 3);
+
+}
