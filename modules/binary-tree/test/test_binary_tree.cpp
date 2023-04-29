@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 
 #include "include/binary_tree.h"
+#include <vector>
 
 TEST(Semenova_Veronika_Node, Can_create_Node) {
   ASSERT_NO_THROW(Node ed);
@@ -35,14 +36,14 @@ TEST(Semenova_Veronika_Node,
   EXPECT_EQ((ed.Parent)->Value, 1);
 }
 TEST(Semenova_Veronika_Node,
-  Can_create_Node_with_neighbor) {
+  Can_create_Node_with_descendant) {
   Node ed1;
   Node ed2(2);
   Node ed3(3);
   ASSERT_NO_THROW(Node ed(3, &ed1, &ed2, &ed3));
 }
 TEST(Semenova_Veronika_Node,
-  Create_Node_with_neighbor_correctly) {
+  Create_Node_with_descendant_correctly) {
   Node ed1(1);
   Node ed2(2);
   Node ed3(3);
@@ -174,7 +175,54 @@ TEST(Semenova_Veronika_Binary_Tree, Ñan_not_delete_node_in_empty_tree) {
     BinaryTree t;
     ASSERT_ANY_THROW(t.Delete(2));
 }
+TEST(Semenova_Veronika_Binary_Tree, Find_value_in_tree_from_vector_of_values_corrertly) {
+    std::vector<int> val = { -2, 2, 5, 3, -1, 7, 8, 6 };
+    BinaryTree t(val);
+    Node* res = t.Find(-1);
+    EXPECT_EQ(res->Value, -1);
+}
 TEST(Semenova_Veronika_Binary_Tree, Ñan_delete_node_in_tree) {
     BinaryTree t(3);
     ASSERT_NO_THROW(t.Delete(3));
+}
+TEST(Semenova_Veronika_Binary_Tree, Delete_node_in_tree_corrertly) {
+    BinaryTree t(3);
+    t.Delete(3);
+    EXPECT_EQ(t.Find(3), nullptr);
+}
+TEST(Semenova_Veronika_Binary_Tree, Can_delete_node_without_descendants) {
+    BinaryTree t({ 1, 5, 4, -3, 7, -4 });
+    ASSERT_NO_THROW(t.Delete(7));
+}
+TEST(Semenova_Veronika_Binary_Tree, Delete_node_without_descendants_corrertly) {
+    BinaryTree t({ 1, 5, 4, -3, 7, -4 });
+    t.Delete(7);
+    EXPECT_EQ(t.Find(7), nullptr);
+}
+TEST(Semenova_Veronika_Binary_Tree, Can_delete_node_with_one_descendants) {
+    BinaryTree t({ 1, 5, 4, -3, 7, -4 });
+    ASSERT_NO_THROW(t.Delete(-3));
+}
+TEST(Semenova_Veronika_Binary_Tree, Delete_node_with_one_descendants_corrertly) {
+    BinaryTree t({ 1, 5, 4, -3, 7, -4 });
+    t.Delete(-3);
+    EXPECT_EQ(t.Find(-3), nullptr);
+}
+TEST(Semenova_Veronika_Binary_Tree, Can_delete_node_with_two_descendants) {
+    BinaryTree t({ 1, 5, 4, -3, 7, -2 });
+    ASSERT_NO_THROW(t.Delete(5));
+}
+TEST(Semenova_Veronika_Binary_Tree, Delete_node_with_two_descendants_corrertly) {
+    BinaryTree t({ 1, 5, 4, -3, 7, -2 });
+    t.Delete(5);
+    EXPECT_EQ(t.Find(5), nullptr);
+}
+TEST(Semenova_Veronika_Binary_Tree, Can_delete_a_root) {
+    BinaryTree t({ 1, 5, 4, -3, 7, -2 });
+    ASSERT_NO_THROW(t.Delete(1));
+}
+TEST(Semenova_Veronika_Binary_Tree, Delete_a_root_corrertly) {
+    BinaryTree t({ 1, 5, 4, -3, 7, -2 });
+    t.Delete(1);
+    EXPECT_EQ(t.Find(1), nullptr);
 }

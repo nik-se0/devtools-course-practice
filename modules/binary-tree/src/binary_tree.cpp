@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 
 #include "include/binary_tree.h"
+#include <vector>
 
 Node::Node(const int V, Node* P,
   Node* L, Node* R) : Value(V), Left(L),
@@ -19,7 +20,8 @@ BinaryTree::BinaryTree(int v) {
 }
 Node* BinaryTree::FindMin(Node* node) const {
   Node* tmp = node;
-  while (tmp->Left != nullptr) {
+  while (tmp->Left != 
+     nullptr) {
   tmp = tmp->Left;
 }
   return tmp;
