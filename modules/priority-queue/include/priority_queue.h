@@ -12,13 +12,13 @@ class PriorityQueue {
   std::list<T> data;
  public:
   PriorityQueue();
-  PriorityQueue(const T);
+  explicit PriorityQueue(const T);
   PriorityQueue(const PriorityQueue &other);
 
   void put(const T &value);
   void pop();
   const T &top() const;
-  
+
   T get();
   bool empty() const;
   size_t size() const;
