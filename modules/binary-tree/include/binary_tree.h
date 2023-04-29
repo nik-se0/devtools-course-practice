@@ -19,7 +19,8 @@ struct Node {
 class BinaryTree {
   Node* root;
   Node* curr;
-  Node* FindMin(Node* node = nullptr) const;
+  Node* FindMin(Node* node) const;
+  Node* FindMax(Node* node) const;
   Node* FindNext(Node* node) const;
  public:
   BinaryTree();
@@ -38,6 +39,7 @@ class BinaryTree {
   int GetValue() const;
   void Reset();
   void SetNext();
+  bool IsEnd() const;
 };
 
 #endif  //  MODULES_BINARY_TREE_INCLUDE_BINARY_TREE_H_
