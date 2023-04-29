@@ -78,7 +78,7 @@ ComplexNumber ComplexNumber::operator/(const ComplexNumber& z) const {
     ComplexNumber division;
 
     if (equalsZero(z)) {
-        throw std::string("Can't divide by zero");
+        throw std::exception("Can't divide by zero");
     } else {
         double denominator = 1.0 / (z.getRe() * z.getRe() +
                                     z.getIm() * z.getIm());

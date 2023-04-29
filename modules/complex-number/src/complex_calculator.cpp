@@ -41,7 +41,7 @@ double parseDouble(const char* arg) {
     double value = strtod(arg, &end);
 
     if (end[0]) {
-        throw std::string("Wrong number format!");
+        throw std::exception("Wrong number format!");
     }
 
     return value;
@@ -58,7 +58,7 @@ char parseOperation(const char* arg) {
     } else if (strcmp(arg, "/") == 0) {
         op = '/';
     } else {
-        throw std::string("Wrong operation format!");
+        throw std::exception("Wrong operation format!");
     }
     return op;
 }
