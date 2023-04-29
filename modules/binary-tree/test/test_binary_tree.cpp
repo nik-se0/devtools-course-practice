@@ -256,5 +256,6 @@ TEST(BTreetest,
 TEST(BTreetest,
  Can_IsEnd) {
     BinaryTree t({ 1, 5, 4});
+    t.Reset();
     ASSERT_NO_THROW(t.IsEnd());
 }
