@@ -68,7 +68,7 @@ add_test(
     COMMAND ${APPLICATION} put 2 aa
 )
 set_tests_properties (${prefix}_сan_not_call_put_without_arguments
-    PASS_REGULAR_EXPRESSION "Wrong number format!:"
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
     LABELS "${MODULE}")
 
 add_test(
