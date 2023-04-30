@@ -3,8 +3,9 @@
 #include "include/pq_app.h"
 #include "include/priority_queue.h"
 
-#include <cstring>
+#include <string.h>
 #include <sstream>
+#include <string>
 
 
 AppPQ::AppPQ() : message("") {}
