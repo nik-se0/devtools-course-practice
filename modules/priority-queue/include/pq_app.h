@@ -3,8 +3,9 @@
 #ifndef MODULES_PRIORITY_QUEUE_INCLUDE_PQ_APP_H_
 #define MODULES_PRIORITY_QUEUE_INCLUDE_PQ_APP_H_
 
-#include "include/priority_queue.h"
 #include <string>
+#include "include/priority_queue.h"
+
 
 class AppPQ {
   std::string message;
