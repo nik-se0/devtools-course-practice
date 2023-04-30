@@ -1,6 +1,7 @@
 // Copyright 2023 Zorin Oleg
 
 #include <gtest/gtest.h>
+#include "include/priority_queue.h"
 
 class PriorityQueueIntTest : public ::testing::Test {
  protected:
