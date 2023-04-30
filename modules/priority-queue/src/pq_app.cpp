@@ -1,8 +1,10 @@
 // Copyright 2023 Semenova Veronika
 
+#include "include/priority_queue.h"
 #include "include/pq_app.h"
 
 #include <sstream>
+#include <cstring>
 
 AppPQ::AppPQ() : message("") {}
 
