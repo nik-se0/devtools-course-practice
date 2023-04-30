@@ -3,10 +3,12 @@
 #include "include/pq_app.h"
 #include "include/priority_queue.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
 #include <string.h>
-#include <sstream>
 #include <string>
-
+#include <sstream>
 
 AppPQ::AppPQ() : message("") {}
 
