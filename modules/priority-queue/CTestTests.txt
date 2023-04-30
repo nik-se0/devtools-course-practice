@@ -66,12 +66,12 @@ set_tests_properties (${prefix}_can_Check_Add_More_Initial_Values PROPERTIES
 
 add_test(
     NAME ${prefix}_сan_not_call_a_non_existent_operations
-    COMMAND ${APPLICATION} multi 1 2 3 4 5
+    COMMAND ${APPLICATION} multi
 )
 set_tests_properties (${prefix}_сan_not_call_a_non_existent_operations
     PASS_REGULAR_EXPRESSION "Unknown operator. Incorrect input format"
     LABELS "${MODULE}")
-    
+ 
 add_test(
     NAME ${prefix}_сan_not_call_put_without_arguments
     COMMAND ${APPLICATION} put
@@ -79,3 +79,4 @@ add_test(
 set_tests_properties (${prefix}_сan_not_call_put_without_arguments
     PASS_REGULAR_EXPRESSION "Wrong number format!"
     LABELS "${MODULE}")
+    
