@@ -15,4 +15,4 @@ class AppPQ {
   AppPQ();
   std::string operator()(int argc, const char** argv);
 };
-#endif   //MODULES_PRIORITY_QUEUE_INCLUDE_PQ_APP_H_
+#endif   // MODULES_PRIORITY_QUEUE_INCLUDE_PQ_APP_H_
