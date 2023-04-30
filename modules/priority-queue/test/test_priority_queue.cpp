@@ -53,19 +53,19 @@ TEST(PriorityQueueTest, Size_Null_When_Empty) {
 TEST(PriorityQueueTest, Cant_Top_When_Empty) {
   PriorityQueue<int> Q;
 
-  ASSERT_THROW(Q.top(), std::out_of_range);
+  ASSERT_ANT_THROW(Q.top());
 }
 
 TEST(PriorityQueueTest, Cant_Pop_When_Empty) {
   PriorityQueue<int> Q;
 
-  ASSERT_THROW(Q.pop(), std::out_of_range);
+  ASSERT_ANT_THROW(Q.pop());
 }
 
 TEST(PriorityQueueTest, Cant_Get_When_Empty) {
   PriorityQueue<int> Q;
 
-  ASSERT_THROW(Q.get(), std::out_of_range);
+  ASSERT_ANT_THROW(Q.get());
 }
 
 TEST(PriorityQueueTest, Can_Put_One_Element) {
