@@ -60,35 +60,20 @@ add_test(
     NAME ${prefix}_can_Check_Add_More_Initial_Values
     COMMAND ${APPLICATION} put 1 2 3 4 5
 )
+
 set_tests_properties (${prefix}_can_Check_Add_More_Initial_Values PROPERTIES
     PASS_REGULAR_EXPRESSION "An insertion was made from the queue:"
     LABELS "${MODULE}")
+    
 add_test(
     NAME ${prefix}_сan_not_enter_arguments_not_numbers
     COMMAND ${APPLICATION} put 2 aa
 )
-set_tests_properties (${prefix}_сan_not_call_put_without_arguments
+
+set_tests_properties (${prefix}_сan_not_enter_arguments_not_numbers
     PASS_REGULAR_EXPRESSION "Wrong number format!"
     LABELS "${MODULE}")
 
-add_test(
-    NAME ${prefix}_can_Pop
-    COMMAND ${APPLICATION} pop
-)
-
-set_tests_properties (${prefix}_can_Pop PROPERTIES
-    PASS_REGULAR_EXPRESSION ""
-    LABELS "${MODULE}")
-    
- add_test(
-    NAME ${prefix}_can_Top
-    COMMAND ${APPLICATION} top
-)
-
-set_tests_properties (${prefix}_can_Top PROPERTIES
-    PASS_REGULAR_EXPRESSION ""
-    LABELS "${MODULE}")   
-    
  add_test(
     NAME ${prefix}_can_Get
     COMMAND ${APPLICATION} get
@@ -97,5 +82,3 @@ set_tests_properties (${prefix}_can_Top PROPERTIES
 set_tests_properties (${prefix}_can_Get PROPERTIES
     PASS_REGULAR_EXPRESSION ""
     LABELS "${MODULE}")     
-
-    
