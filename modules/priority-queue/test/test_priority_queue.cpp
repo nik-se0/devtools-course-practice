@@ -53,19 +53,19 @@ TEST(PriorityQueueTest, Size_Null_When_Empty) {
 TEST(PriorityQueueTest, Cant_Top_When_Empty) {
   PriorityQueue<int> Q;
 
-  ASSERT_ANT_THROW(Q.top());
+  ASSERT_ANY_THROW(Q.top());
 }
 
 TEST(PriorityQueueTest, Cant_Pop_When_Empty) {
   PriorityQueue<int> Q;
 
-  ASSERT_ANT_THROW(Q.pop());
+  ASSERT_ANY_THROW(Q.pop());
 }
 
 TEST(PriorityQueueTest, Cant_Get_When_Empty) {
   PriorityQueue<int> Q;
 
-  ASSERT_ANT_THROW(Q.get());
+  ASSERT_ANY_THROW(Q.get());
 }
 
 TEST(PriorityQueueTest, Can_Put_One_Element) {
