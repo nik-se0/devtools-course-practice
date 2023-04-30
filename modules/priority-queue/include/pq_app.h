@@ -11,7 +11,7 @@ class AppPQ {
   PriorityQueue<int> Q1;
   void Help(const char* appname, const char* message = "");
 
-   public:
+ public:
   AppPQ();
   std::string operator()(int argc, const char** argv);
 };
