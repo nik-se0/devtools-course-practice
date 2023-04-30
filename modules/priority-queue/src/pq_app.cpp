@@ -134,5 +134,5 @@ std::string AppPQ::operator()(int argc, const char** argv) {
            return str;
        }
    }
-   return message;
+  return message;
 }
