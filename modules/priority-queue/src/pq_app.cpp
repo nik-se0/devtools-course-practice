@@ -4,18 +4,19 @@
 
 #include <sstream>
 
-
 AppPQ::AppPQ() : message("") {}
 
-void AppPQ::Help(const char* appname, const char* mes) {
+void
+AppPQ::Help(const char* appname, const char* mes)
+{
     std::ostringstream stream;
-    stream <<
-        std::string(mes) <<
-        "\tThis is an application for working with a priority queue.\n\n\n" <<
-        "\tPlease provide arguments in the following format:\n" <<
-        "   $ " << appname << "  <Operation>" << "  <value_or_values>\n\n" <<
-        "\tThe arguments for the operations must be integer number," <<
-        " and the operation is one of the following :"
+    stream << std::string(mes)
+        << "\tThis is an application for working with a priority queue.\n\n\n"
+        << "\tPlease provide arguments in the following format:\n"
+        << "   $ " << appname << "  <Operation>"
+        << "  <value_or_values>\n\n"
+        << "\tThe arguments for the operations must be integer number,"
+        << " and the operation is one of the following :"
         << "\n\t'put' - \tPut elements in queue."
         << "\n\t'pop' - \tRetrieves the element on the top out of queue"
         << "\n\t'top' - \tReturns element value on the top out of queue"
@@ -27,62 +28,84 @@ void AppPQ::Help(const char* appname, const char* mes) {
     message = stream.str();
 }
 
-int ParseToInt(const char* arg) {
+int
+ParseToInt(const char* arg)
+{
     int result = 0;
-    try {
+    try
+    {
         result = std::stoi(arg);
     }
-    catch (...) {
+    catch (...)
+    {
         throw std::string("Wrong number format!");
     }
     return result;
 }
 
-int ParseOperation(const char* arg) {
+int
+ParseOperation(const char* arg)
+{
     int operation = 0;
-    if (strcmp(arg, "put") == 0) {
+    if (strcmp(arg, "put") == 0)
+    {
         operation = 7;
     }
-    else if (strcmp(arg, "pop") == 0) {
+    else if (strcmp(arg, "pop") == 0)
+    {
         operation = 4;
     }
-    else if (strcmp(arg, "top") == 0) {
+    else if (strcmp(arg, "top") == 0)
+    {
         operation = 5;
     }
-    else if (strcmp(arg, "get") == 0) {
+    else if (strcmp(arg, "get") == 0)
+    {
         operation = 6;
     }
-    else if (strcmp(arg, "size") == 0) {
+    else if (strcmp(arg, "size") == 0)
+    {
         operation = 3;
     }
-    else if (strcmp(arg, "empty") == 0) {
+    else if (strcmp(arg, "empty") == 0)
+    {
         operation = 2;
     }
-    else if (strcmp(arg, "clear") == 0) {
+    else if (strcmp(arg, "clear") == 0)
+    {
         operation = 1;
     }
-    else {
+    else
+    {
         throw std::string("Wrong operation");
     }
     return operation;
 }
 
-std::string AppPQ::operator()(int argc, const char** argv) {
-    if (argc == 1) {
+std::string
+AppPQ::operator() (int argc, const char** argv)
+{
+    if (argc == 1)
+    {
         Help(argv[0]);
         return message;
     }
     int operation = 0;
     int tmp;
-    try {
+    try
+    {
         operation = ParseOperation(argv[1]);
     }
-    catch (...) {
+    catch (...)
+    {
         return "Unknown operator. Incorrect input format";
     }
-    if (argc == 2) {
-        try {
-            switch (operation) {
+    if (argc == 2)
+    {
+        try
+        {
+            switch (operation)
+            {
             case 1:
                 message += "\tThe queue cleared\n";
                 Q1.clear();
@@ -93,10 +116,12 @@ std::string AppPQ::operator()(int argc, const char** argv) {
                 message += std::to_string(tmp) + "\n";
                 break;
             case 2:
-                if (Q1.empty()) {
+                if (Q1.empty())
+                {
                     message += "\tQueue is empty\n";
                 }
-                else {
+                else
+                {
                     message += "\tQueue is not empty\n";
                 }
                 break;
@@ -116,26 +141,31 @@ std::string AppPQ::operator()(int argc, const char** argv) {
                 break;
             default:
                 throw std::string("Wrong number format!");
-
             }
         }
-        catch (std::string& str) {
+        catch (std::string& str)
+        {
             return str;
         }
-        if (operation > 4) {
+        if (operation > 4)
+        {
             message += std::to_string(tmp) + "\n";
         }
     }
-    else {
+    else
+    {
         message += "\tAn insertion was made from the queue:\n\t";
-        try {
-            for (int i = 2; i < argc; i++) {
+        try
+        {
+            for (int i = 2; i < argc; i++)
+            {
                 tmp = ParseToInt(argv[i]);
                 message += " " + std::to_string(tmp);
                 Q1.put(tmp);
             }
         }
-        catch (std::string& str) {
+        catch (std::string& str)
+        {
             return str;
         }
     }
