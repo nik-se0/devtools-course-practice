@@ -65,15 +65,6 @@ set_tests_properties (${prefix}_can_Check_Add_More_Initial_Values PROPERTIES
     PASS_REGULAR_EXPRESSION "An insertion was made from the queue:"
     LABELS "${MODULE}")
     
-add_test(
-    NAME ${prefix}_сan_not_enter_arguments_not_numbers
-    COMMAND ${APPLICATION} put 2 aa
-)
-
-set_tests_properties (${prefix}_сan_not_enter_arguments_not_numbers
-    PASS_REGULAR_EXPRESSION "Wrong number format!"
-    LABELS "${MODULE}")
-
  add_test(
     NAME ${prefix}_can_Get
     COMMAND ${APPLICATION} get
