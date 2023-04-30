@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-#include "include/priority_queue_application.h"
+#include "include/pq_app.h"
 
 int main(int argc, const char** argv) {
   AppPQ app;
