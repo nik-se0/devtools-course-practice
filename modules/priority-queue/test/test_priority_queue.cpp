@@ -2,8 +2,6 @@
 
 #include <gtest/gtest.h>
 
-#include "include/priority_queue.h"
-
 class PriorityQueueIntTest : public ::testing::Test {
  protected:
   PriorityQueue<int> Q;
