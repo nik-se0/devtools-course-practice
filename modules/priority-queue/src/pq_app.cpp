@@ -111,8 +111,6 @@ std::string AppPQ::operator()(int argc, const char **argv) {
           tmp = Q1.get();
           message += std::to_string(tmp) + "\n";
           break;
-        default:
-          throw std::string("Wrong number format!");
         }
       } catch (std::string &str) {
         return str;
