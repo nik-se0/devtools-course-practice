@@ -6,8 +6,6 @@
 #include "include/pq_app.h"
 #include "include/priority_queue.h"
 
-
-
 AppPQ::AppPQ() : message("") {}
 
 void AppPQ::Help(const char *appname, const char *mes) {
@@ -66,64 +64,70 @@ std::string AppPQ::operator()(int argc, const char **argv) {
   }
   int operation = 0;
   int tmp;
-  try {
-    operation = ParseOperation(argv[1]);
-  } catch (...) {
-    return "Unknown operator. Incorrect input format";
-  }
-  if (argc == 2) {
+  int i = 1;
+  while (i < argc) {
     try {
-      switch (operation) {
-      case 1:
-        message += "\tThe queue cleared\n";
-        Q1.clear();
-        break;
-      case 3:
-        tmp = Q1.size();
-        message += "\tA queue size = ";
-        message += std::to_string(tmp) + "\n";
-        break;
-      case 2:
-        if (Q1.empty()) {
-          message += "\tQueue is empty\n";
-        } else {
-          message += "\tQueue is not empty\n";
+      operation = ParseOperation(argv[i]);
+    } catch (...) {
+      return "Unknown operator. Incorrect input format";
+    }
+    i++;
+    if (operation < 7) {
+      try {
+        switch (operation) {
+        case 1:
+          message += "\tThe queue cleared\n";
+          Q1.clear();
+          break;
+        case 3:
+          tmp = Q1.size();
+          message += "\tA queue size = ";
+          message += std::to_string(tmp) + "\n";
+          break;
+        case 2:
+          if (Q1.empty()) {
+            message += "\tQueue is empty\n";
+          } else {
+            message += "\tQueue is not empty\n";
+          }
+          break;
+        case 4:
+          message += "\tAn withdrawal was made";
+          message += " from the queue\n";
+          Q1.pop();
+          break;
+        case 5:
+          message += "\tAt the top of the queue a value of ";
+          tmp = Q1.top();
+          message += std::to_string(tmp) + "\n";
+          break;
+        case 6:
+          message += "\tThe withdrawal was made";
+          message += " from the queue a value of ";
+          tmp = Q1.get();
+          message += std::to_string(tmp) + "\n";
+          break;
+        default:
+          throw std::string("Wrong number format!");
         }
-        break;
-      case 4:
-        message += "\tAn insertion was made";
-        message += " into the queue\n";
-        Q1.pop();
-        break;
-      case 5:
-        message += "\tAt the top of the queue a value of ";
-        tmp = Q1.top();
-        break;
-      case 6:
-        message += "\tThe withdrawal was made";
-        message += " from the queue a value of ";
-        tmp = Q1.get();
-        break;
-      default:
-        throw std::string("Wrong number format!");
+      } catch (std::string &str) {
+        return str;
       }
-    } catch (std::string &str) {
-      return str;
-    }
-    if (operation > 4) {
-      message += std::to_string(tmp) + "\n";
-    }
-  } else {
-    message += "\tAn insertion was made from the queue:\n\t";
-    try {
-      for (int i = 2; i < argc; i++) {
-        tmp = ParseToInt(argv[i]);
-        message += " " + std::to_string(tmp);
-        Q1.put(tmp);
+    } else {
+      message += "\tAn insertion was made from the queue:\n\t";
+      try {
+        while (!isOnlyCharacter(argv[i])) {
+          tmp = ParseToInt(argv[i]);
+          message += " " + std::to_string(tmp);
+          Q1.put(tmp);
+          i++;
+        }
+        message += "\n";
+      } catch (std::string &str) {
+        return str;
       }
-    } catch (std::string &str) {
-      return str;
     }
   }
+
   return message;
 }
