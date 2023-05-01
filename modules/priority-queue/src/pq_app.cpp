@@ -120,7 +120,7 @@ std::string AppPQ::operator()(int argc, const char **argv) {
     } else {
       message += "\tAn insertion was made from the queue:\n\t";
       try {
-        while (i<argc&& !isOnlyCharacter(argv[i])) {
+        while (i < argc&& !isOnlyCharacter(argv[i])) {
           tmp = ParseToInt(argv[i]);
           message += " " + std::to_string(tmp);
           Q1.put(tmp);
