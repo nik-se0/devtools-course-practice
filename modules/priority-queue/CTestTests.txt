@@ -73,3 +73,52 @@ set_tests_properties (${prefix}_can_Check_Add_More_Initial_Values PROPERTIES
 set_tests_properties (${prefix}_can_Get PROPERTIES
     PASS_REGULAR_EXPRESSION ""
     LABELS "${MODULE}")     
+
+add_test(
+    NAME ${prefix}_can_Wrong_number_format
+    COMMAND ${APPLICATION} put a1
+)
+
+set_tests_properties (${prefix}_can_Wrong_number_format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format"
+    LABELS "${MODULE}")   
+
+add_test(
+    NAME ${prefix}_can_pop
+    COMMAND ${APPLICATION} put 1 pop
+)
+
+set_tests_properties (${prefix}_can_pop PROPERTIES
+    LABELS "${MODULE}")   
+
+add_test(
+    NAME ${prefix}_can_top
+    COMMAND ${APPLICATION} put 1 top
+)
+
+set_tests_properties (${prefix}_can_top PROPERTIES
+    LABELS "${MODULE}")   
+
+add_test(
+    NAME ${prefix}_can_not_wrong_operat
+    COMMAND ${APPLICATION} multi
+)
+
+set_tests_properties (${prefix}_can_not_wrong_operat PROPERTIES
+    LABELS "${MODULE}")   
+
+add_test(
+    NAME ${prefix}_can_q_not_empty
+    COMMAND ${APPLICATION} put 1 2 empty
+)
+
+set_tests_properties (${prefix}_can_q_not_empty PROPERTIES
+    LABELS "${MODULE}") 
+
+add_test(
+    NAME ${prefix}_can_get
+    COMMAND ${APPLICATION} put 1 get
+)
+
+set_tests_properties (${prefix}_can_top PROPERTIES
+    LABELS "${MODULE}")   
