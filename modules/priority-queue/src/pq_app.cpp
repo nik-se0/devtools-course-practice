@@ -57,6 +57,10 @@ int ParseOperation(const char *arg) {
   return operation;
 }
 
+bool isOnlyCharacter(const std::string& s) {
+    return s.find_first_of("0123456789") == std::string::npos;
+}
+
 std::string AppPQ::operator()(int argc, const char **argv) {
   if (argc == 1) {
     Help(argv[0]);
